@@ -6,7 +6,10 @@ matplotlib==3.10.0
 seaborn==0.13.2
 jupyterlab==4.6.6
 ipykernel==7.4.0
+ipywidgets==8.1.9
 ydata-profiling==4.18.4
+# ydata-profiling imports pkg_resources, which setuptools 81+ no longer ships
+setuptools==80.10.2
 
 # Data versioning
 dvc==3.67.1
