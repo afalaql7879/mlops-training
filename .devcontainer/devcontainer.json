@@ -2,6 +2,18 @@
   "name": "mlops-training",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "postCreateCommand": "pip install --no-cache-dir -r .devcontainer/requirements.txt",
+  "postStartCommand": "bash .devcontainer/start-mlflow.sh",
+  "containerEnv": {
+    "MLFLOW_TRACKING_URI": "http://localhost:5000",
+    "MLFLOW_DISABLE_AGENT_HINT": "1"
+  },
+  "forwardPorts": [5000],
+  "portsAttributes": {
+    "5000": {
+      "label": "MLflow",
+      "onAutoForward": "notify"
+    }
+  },
   "customizations": {
     "codespaces": {
       "openFiles": ["README.md"]
